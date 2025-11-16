@@ -1,0 +1,66 @@
+name: Deploy Cedar
+
+on:
+  push:
+    branches:
+      - deploy
+  pull_request:
+      branches:
+        - deploy
+
+# Cancel previous in-progress runs in the same group if a new run is triggered
+concurrency:
+  group: code-quality-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+    deploy:
+        runs-on: ubuntu-latest
+
+        steps:
+          # Step 1: Checkout the code from GitHub
+          - name: Checkout code
+            uses: actions/checkout@v4
+
+          # Step 2: Set up PHP (with Composer)
+          - name: Set up PHP
+            uses: shivammathur/setup-php@v2
+            with:
+              php-version: '7.3'
+
+          - name: Get Composer Cache Directory
+            id: composer-cache
+            run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+          - name: Cache Composer dependencies
+            uses: actions/cache@v3
+            with:
+              path: ${{ steps.composer-cache.outputs.dir }}
+              key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+              restore-keys: |
+                ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+
+          # Step 3: Install Composer (if not already installed)
+#          - name: Install Composer
+#            run: |
+#              cd www
+#              composer install --no-dev --optimize-autoloader
+
+          # Step 4: Install dependencies using Composer
+#          - name: Install dependencies
+#            run: |
+#              cd www
+#              composer install --no-interaction --prefer-dist --optimize-autoloader
+
+          # Step 5: Deploy to PlanetHoster via FTP/SFTP
+          - name: Deploy to PlanetHoster via FTP
+            uses: SamKirkland/FTP-Deploy-Action@4.3.0
+            with:
+              server: ${{ secrets.PLANETHOSTER_FTP_HOST }}
+              username: ${{ secrets.PLANETHOSTER_FTP_USER }}
+              password: ${{ secrets.PLANETHOSTER_FTP_PASSWORD }}
+              local-dir: ./www/
+
+          # Step 7: Done
+          - name: Deployment Finished
+            run: echo "✅ Laravel deployed to PlanetHoster!"

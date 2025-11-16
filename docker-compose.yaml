@@ -1,0 +1,44 @@
+services:
+  mysql_cedar_admin:
+    image: 'mysql:8.0.32'
+    container_name: mysql_cedar_admin
+    restart: unless-stopped
+    ports:
+      - '33060:3306'
+    command: '--default-authentication-plugin=mysql_native_password'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'root'
+      MYSQL_USER: 'user'
+      MYSQL_PASS: 'root'
+    volumes:
+      - ./dump:/docker-entrypoint-initdb.d
+      - persistent:/var/lib/mysql
+    networks:
+      - default
+
+  phpmyadmin:
+    depends_on:
+      - mysql_cedar_admin
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    ports:
+      - "8000:80"
+    environment:
+      PMA_HOST: mysql_cedar_admin
+      MYSQL_ROOT_PASSWORD: 65tyhG!@c3652;
+
+  www:
+    container_name: cedar-admin
+    depends_on:
+      - mysql_cedar_admin
+    build: .
+    ports:
+      - "44:80"
+    restart: unless-stopped
+    volumes:
+      - ./www:/var/www/html
+    networks:
+      - default
+
+volumes:
+  persistent:
