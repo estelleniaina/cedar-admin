@@ -1,0 +1,490 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Cedar API Documentation",
+        "description": "Liste des routes API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/actualite": {
+            "get": {
+                "tags": [
+                    "Actualités"
+                ],
+                "summary": "Prendre la liste des actualités",
+                "description": "Retourner la liste des actualités",
+                "operationId": "getAllActualite",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/actualite/{slug}": {
+            "get": {
+                "tags": [
+                    "Actualités"
+                ],
+                "summary": "Prendre l'infos de l'actualité",
+                "description": "Retourner les informations de l'actualité",
+                "operationId": "getInfosActualite",
+                "parameters": [
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "description": "Slug de l'article",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/capitalisation": {
+            "get": {
+                "tags": [
+                    "Capitalisations"
+                ],
+                "summary": "Prendre la liste des capitalisations",
+                "description": "Retourner la liste des capitalisations",
+                "operationId": "getAllCapitalisation",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/centre/{centreId}/actualite": {
+            "get": {
+                "tags": [
+                    "Centres"
+                ],
+                "summary": "Prendre les actualités du centre",
+                "operationId": "getCentreActualites",
+                "parameters": [
+                    {
+                        "name": "centreId",
+                        "in": "path",
+                        "description": "ID du centre",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/centre/{centreId}/actualite/{slug}": {
+            "get": {
+                "tags": [
+                    "Centres"
+                ],
+                "summary": "Prendre les infos de l'actualités",
+                "operationId": "getCentreActualiteInfos",
+                "parameters": [
+                    {
+                        "name": "centreId",
+                        "in": "path",
+                        "description": "ID du centre",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "slug",
+                        "in": "path",
+                        "description": "Slug de l'article",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/centre": {
+            "get": {
+                "tags": [
+                    "Centres"
+                ],
+                "summary": "Prendre la liste des centres",
+                "description": "Retourner la liste des centres",
+                "operationId": "getAllCentre",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/centre/info/{id}": {
+            "get": {
+                "tags": [
+                    "Centres"
+                ],
+                "summary": "Prendre les infos du centre",
+                "operationId": "getCentreInfos",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "ID du centre",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/centre/{centreId}/gallery": {
+            "get": {
+                "tags": [
+                    "Centres"
+                ],
+                "summary": "Prendre les photos du centre",
+                "operationId": "getCentreGalleries",
+                "parameters": [
+                    {
+                        "name": "centreId",
+                        "in": "path",
+                        "description": "ID du centre",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/centre/{centreId}/histoire": {
+            "get": {
+                "tags": [
+                    "Centres"
+                ],
+                "summary": "Prendre les histoires du centre",
+                "operationId": "getCentreHistoires",
+                "parameters": [
+                    {
+                        "name": "centreId",
+                        "in": "path",
+                        "description": "ID du centre",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/centre/{centreId}/innovation": {
+            "get": {
+                "tags": [
+                    "Centres"
+                ],
+                "summary": "Prendre les innovations du centre",
+                "operationId": "getCentreInnovations",
+                "parameters": [
+                    {
+                        "name": "centreId",
+                        "in": "path",
+                        "description": "ID du centre",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/centre/{centreId}/lecon": {
+            "get": {
+                "tags": [
+                    "Centres"
+                ],
+                "summary": "Prendre les lecons du centre",
+                "operationId": "getCentreLecons",
+                "parameters": [
+                    {
+                        "name": "centreId",
+                        "in": "path",
+                        "description": "ID du centre",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/partenaire": {
+            "get": {
+                "tags": [
+                    "Partenaires"
+                ],
+                "summary": "Prendre la liste des partenaires",
+                "description": "Retourner la liste des partenaires",
+                "operationId": "getAllPartenaire",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        },
+        "/api/rapport": {
+            "get": {
+                "tags": [
+                    "Rapports"
+                ],
+                "summary": "Prendre la liste des rapports",
+                "description": "Retourner la liste des rapports",
+                "operationId": "getAllRapport",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {}
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "400": {
+                        "description": "Bad Request"
+                    },
+                    "404": {
+                        "description": "not found"
+                    }
+                }
+            }
+        }
+    }
+}

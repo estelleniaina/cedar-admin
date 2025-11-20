@@ -1,0 +1,102 @@
+{
+  "menu": [
+    {
+      "url": "/dashboard",
+      "name": "Dashboard",
+      "icon": "menu-icon icon-base ri ri-home-smile-line",
+      "slug": "dashboard"
+    },
+
+    {
+      "menuHeader": "Articles"
+    },
+    {
+      "url": "/lesson",
+      "name": "Leçons apprises",
+      "icon": "menu-icon icon-base ri ri-book-2-fill",
+      "slug": "lesson"
+    },
+    {
+      "url": "/history",
+      "name": "Petites histoires",
+      "icon": "menu-icon icon-base ri ri-book-open-line",
+      "slug": "history"
+    },
+    {
+      "url": "/innovation",
+      "name": "Innovations",
+      "icon": "menu-icon icon-base ri ri-box-3-line",
+      "slug": "innovation"
+    },
+
+    {
+      "menuHeader": "Paramètres"
+    },
+    {
+      "name": "Configuration",
+      "icon": "menu-icon icon-base ri ri-settings-5-line",
+      "slug": "configuration",
+      "url": "configuration"
+    },
+    {
+      "name": "Objectif",
+      "icon": "menu-icon icon-base ri ri-line-chart-line",
+      "slug": "objectif",
+      "url": "objectif"
+    },
+
+    {
+      "menuHeader": "Autres"
+    },
+    {
+      "name": "Centre",
+      "icon": "menu-icon icon-base ri ri-map-2-line",
+      "slug": "centre",
+      "url": "centre"
+    },
+    {
+      "name": "Partenaire",
+      "icon": "menu-icon icon-base ri ri-hand-coin-fill",
+      "slug": "partenaire",
+      "url": "partenaire"
+    },
+
+    {
+      "menuHeader": "Internes"
+    },
+    {
+      "url": "gallery",
+      "icon": "menu-icon icon-base ri ri-multi-image-line",
+      "name": "Gallery",
+      "slug": "gallery"
+    },
+    {
+      "url": "impact",
+      "icon": "menu-icon icon-base ri ri-calendar-todo-line",
+      "name": "Impact",
+      "slug": "impact"
+    },
+    {
+      "url": "connaissance",
+      "icon": "menu-icon icon-base ri ri-bookmark-fill",
+      "name": "Base de connaissance",
+      "slug": "connaissance"
+    },
+
+    {
+      "menuHeader": "Recrutement"
+    },
+    {
+      "url": "category",
+      "icon": "menu-icon icon-base ri ri-list-settings-fill",
+      "name": "Catégories",
+      "slug": "category"
+    },
+    {
+      "url": "opportunities",
+      "icon": "menu-icon icon-base ri ri-suitcase-fill",
+      "name": "Opportunités",
+      "slug": "opportunities"
+    }
+  ]
+}
